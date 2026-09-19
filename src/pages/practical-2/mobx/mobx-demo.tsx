@@ -1,9 +1,9 @@
-import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
 import { makeAutoObservable } from 'mobx';
 import { observer } from 'mobx-react-lite';
-import type { ICounterStore } from './mobx-demo.type';
+import React from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
 import styles from './mobx-demo.style';
+import type { ICounterStore } from './mobx-demo.type';
 
 // ─── MobX Store ───────────────────────────────────────────────────────────────
 class CounterStore implements ICounterStore {
@@ -13,9 +13,15 @@ class CounterStore implements ICounterStore {
     makeAutoObservable(this);
   }
 
-  increment() { this.count++; }
-  decrement() { this.count--; }
-  reset() { this.count = 0; }
+  increment() {
+    this.count++;
+  }
+  decrement() {
+    this.count--;
+  }
+  reset() {
+    this.count = 0;
+  }
 }
 
 const counterStore = new CounterStore();
@@ -27,9 +33,11 @@ const MobXDemoScreen: React.FC = observer(() => {
       <View style={styles.conceptBox}>
         <Text style={styles.conceptTitle}>How MobX Works</Text>
         <Text style={styles.conceptText}>
-          1. <Text style={styles.bold}>makeAutoObservable</Text> — makes class reactive{'\n'}
+          1. <Text style={styles.bold}>makeAutoObservable</Text> — makes class
+          reactive{'\n'}
           2. Mutate state directly (no dispatch/set needed){'\n'}
-          3. <Text style={styles.bold}>observer()</Text> — component re-renders on change{'\n'}
+          3. <Text style={styles.bold}>observer()</Text> — component re-renders
+          on change{'\n'}
           4. Computed values auto-update{'\n'}
           5. Reactions run side effects when state changes
         </Text>
@@ -41,16 +49,21 @@ const MobXDemoScreen: React.FC = observer(() => {
         <View style={styles.row}>
           <TouchableOpacity
             style={[styles.btn, styles.btnOutline]}
-            onPress={() => counterStore.decrement()}>
+            onPress={() => counterStore.decrement()}
+          >
             <Text style={styles.btnOutlineText}>−</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.btn, styles.btnPrimary]}
-            onPress={() => counterStore.increment()}>
+            onPress={() => counterStore.increment()}
+          >
             <Text style={styles.btnText}>+</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.resetBtn} onPress={() => counterStore.reset()}>
+        <TouchableOpacity
+          style={styles.resetBtn}
+          onPress={() => counterStore.reset()}
+        >
           <Text style={styles.resetText}>Reset</Text>
         </TouchableOpacity>
       </View>

@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import type { StatCard, ActivityItem } from './dashboard.type';
+import { RECENT_ACTIVITIES, STATS } from './dashboard.data';
 import styles from './dashboard.style';
-import { STATS, RECENT_ACTIVITIES } from './dashboard.data';
 
 const P1DashboardScreen: React.FC = () => {
   return (
@@ -11,7 +10,8 @@ const P1DashboardScreen: React.FC = () => {
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.container}
-        showsVerticalScrollIndicator={false}>
+        showsVerticalScrollIndicator={false}
+      >
         {/* Header */}
         <View style={styles.header}>
           <View>
@@ -27,7 +27,10 @@ const P1DashboardScreen: React.FC = () => {
         <Text style={styles.sectionTitle}>Overview</Text>
         <View style={styles.statsGrid}>
           {STATS.map(stat => (
-            <View key={stat.label} style={[styles.statCard, { borderLeftColor: stat.color }]}>
+            <View
+              key={stat.label}
+              style={[styles.statCard, { borderLeftColor: stat.color }]}
+            >
               <Text style={styles.statEmoji}>{stat.emoji}</Text>
               <Text style={styles.statValue}>{stat.value}</Text>
               <Text style={styles.statLabel}>{stat.label}</Text>
@@ -44,7 +47,8 @@ const P1DashboardScreen: React.FC = () => {
               style={[
                 styles.activityItem,
                 index < RECENT_ACTIVITIES.length - 1 && styles.activityBorder,
-              ]}>
+              ]}
+            >
               <Text style={styles.activityEmoji}>{item.emoji}</Text>
               <View style={styles.activityContent}>
                 <Text style={styles.activityText}>{item.text}</Text>

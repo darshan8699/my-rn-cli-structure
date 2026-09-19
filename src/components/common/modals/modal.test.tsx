@@ -10,7 +10,7 @@ describe('Modal Component', () => {
       component = ReactTestRenderer.create(
         <AppModal visible={true} onClose={() => {}} title="Test Dialog">
           <Text>Modal Body Content</Text>
-        </AppModal>
+        </AppModal>,
       );
     });
     expect(component.toJSON()).toBeTruthy();
@@ -30,7 +30,7 @@ describe('Modal Component', () => {
           secondaryButtonText="Cancel"
         >
           <Text>Are you sure?</Text>
-        </AppModal>
+        </AppModal>,
       );
     });
     expect(JSON.stringify(component.toJSON())).toContain('Confirm');

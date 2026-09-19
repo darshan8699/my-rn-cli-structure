@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import {
-  View,
-  Text,
-  FlatList,
   ActivityIndicator,
+  FlatList,
+  Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import { Spacing } from '../../../common/theme';
-import type { Continent } from './graphql-demo.type';
 import styles from './graphql-demo.style';
+import type { Continent } from './graphql-demo.type';
 
 const ACCENT = '#E535AB';
 
@@ -59,7 +59,8 @@ const GraphQLDemoScreen: React.FC = () => {
       <TouchableOpacity
         style={styles.continentCard}
         onPress={() => setExpanded(isOpen ? null : item.code)}
-        activeOpacity={0.8}>
+        activeOpacity={0.8}
+      >
         <View style={styles.continentRow}>
           <Text style={styles.continentName}>{item.name}</Text>
           <Text style={styles.continentCount}>
@@ -74,7 +75,9 @@ const GraphQLDemoScreen: React.FC = () => {
               </Text>
             ))}
             {item.countries.length > 8 && (
-              <Text style={styles.moreText}>+{item.countries.length - 8} more…</Text>
+              <Text style={styles.moreText}>
+                +{item.countries.length - 8} more…
+              </Text>
             )}
           </View>
         )}
@@ -88,7 +91,8 @@ const GraphQLDemoScreen: React.FC = () => {
         <Text style={styles.conceptTitle}>How GraphQL Works</Text>
         <Text style={styles.conceptText}>
           1. Single endpoint (POST request){'\n'}
-          2. <Text style={styles.bold}>Query</Text> — declare exactly what data you need{'\n'}
+          2. <Text style={styles.bold}>Query</Text> — declare exactly what data
+          you need{'\n'}
           3. Response matches the query shape exactly{'\n'}
           4. No over-fetching or under-fetching{'\n'}
           5. Using public Countries API (trevorblades.com)
@@ -102,7 +106,11 @@ const GraphQLDemoScreen: React.FC = () => {
       )}
 
       {loading && (
-        <ActivityIndicator color={ACCENT} size="large" style={{ marginTop: Spacing.xl }} />
+        <ActivityIndicator
+          color={ACCENT}
+          size="large"
+          style={{ marginTop: Spacing.xl }}
+        />
       )}
 
       {error && <Text style={styles.errorText}>Error: {error}</Text>}
@@ -115,7 +123,9 @@ const GraphQLDemoScreen: React.FC = () => {
           showsVerticalScrollIndicator={false}
           ListHeaderComponent={
             <View style={styles.resultHeader}>
-              <Text style={styles.resultLabel}>✅ Fetched {data.length} continents</Text>
+              <Text style={styles.resultLabel}>
+                ✅ Fetched {data.length} continents
+              </Text>
               <TouchableOpacity onPress={fetchData}>
                 <Text style={styles.refetchText}>↺ Refetch</Text>
               </TouchableOpacity>

@@ -19,7 +19,7 @@ export const truncate = (str: string, maxLength: number): string =>
 
 /** Delay execution for a given number of milliseconds */
 export const sleep = (ms: number): Promise<void> =>
-  new Promise((resolve) => setTimeout(resolve, ms));
+  new Promise(resolve => setTimeout(resolve, ms));
 
 /** Check if a value is non-null and non-undefined */
 export const isDefined = <T>(value: T | null | undefined): value is T =>

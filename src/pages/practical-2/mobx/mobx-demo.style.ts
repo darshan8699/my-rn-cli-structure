@@ -1,5 +1,14 @@
 import { StyleSheet } from 'react-native';
-import { Colors, BorderRadius, FontFamily, FontSize, Spacing, scale, verticalScale, rf } from '../../../common/theme';
+import {
+  BorderRadius,
+  Colors,
+  FontFamily,
+  FontSize,
+  Spacing,
+  rf,
+  scale,
+  verticalScale,
+} from '../../../common/theme';
 
 export const MOBX_ACCENT = '#FF7043';
 

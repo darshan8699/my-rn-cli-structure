@@ -12,7 +12,8 @@ const P2DashboardScreen: React.FC = () => {
     <ScrollView
       style={styles.scrollView}
       contentContainerStyle={styles.container}
-      showsVerticalScrollIndicator={false}>
+      showsVerticalScrollIndicator={false}
+    >
       <Text style={styles.intro}>
         Tap any demo below to see a minimal working example.
       </Text>
@@ -22,8 +23,11 @@ const P2DashboardScreen: React.FC = () => {
           key={item.id}
           style={styles.card}
           activeOpacity={0.8}
-          onPress={() => navigation.navigate(item.id as any)}>
-          <View style={[styles.iconBox, { backgroundColor: item.color + '20' }]}>
+          onPress={() => navigation.navigate(item.id as any)}
+        >
+          <View
+            style={[styles.iconBox, { backgroundColor: item.color + '20' }]}
+          >
             <Text style={styles.emoji}>{item.emoji}</Text>
           </View>
           <View style={styles.cardContent}>

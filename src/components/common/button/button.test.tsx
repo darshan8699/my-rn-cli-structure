@@ -7,7 +7,7 @@ describe('Button Component', () => {
     let component: any;
     await ReactTestRenderer.act(async () => {
       component = ReactTestRenderer.create(
-        <Button label="Click Me" onPress={() => {}} />
+        <Button label="Click Me" onPress={() => {}} />,
       );
     });
     expect(component.toJSON()).toBeTruthy();
@@ -19,10 +19,10 @@ describe('Button Component', () => {
     let secComp: any;
     await ReactTestRenderer.act(async () => {
       outlineComp = ReactTestRenderer.create(
-        <Button label="Outline" variant="outline" onPress={() => {}} />
+        <Button label="Outline" variant="outline" onPress={() => {}} />,
       );
       secComp = ReactTestRenderer.create(
-        <Button label="Secondary" variant="secondary" onPress={() => {}} />
+        <Button label="Secondary" variant="secondary" onPress={() => {}} />,
       );
     });
     expect(outlineComp.toJSON()).toBeTruthy();
@@ -33,7 +33,7 @@ describe('Button Component', () => {
     let component: any;
     await ReactTestRenderer.act(async () => {
       component = ReactTestRenderer.create(
-        <Button label="Loading" loading={true} onPress={() => {}} />
+        <Button label="Loading" loading={true} onPress={() => {}} />,
       );
     });
     const root = component.root;
@@ -45,7 +45,7 @@ describe('Button Component', () => {
     let component: any;
     await ReactTestRenderer.act(async () => {
       component = ReactTestRenderer.create(
-        <Button label="Disabled" disabled={true} onPress={() => {}} />
+        <Button label="Disabled" disabled={true} onPress={() => {}} />,
       );
     });
     expect(component.toJSON()).toBeTruthy();

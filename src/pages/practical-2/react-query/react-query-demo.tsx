@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
 import {
-  View,
-  Text,
-  FlatList,
-  ActivityIndicator,
-  TouchableOpacity,
-} from 'react-native';
-import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query';
 import axios from 'axios';
+import React from 'react';
+import {
+  ActivityIndicator,
+  FlatList,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { Spacing } from '../../../common/theme';
-import type { Post } from './react-query-demo.type';
 import styles from './react-query-demo.style';
+import type { Post } from './react-query-demo.type';
 
 const ACCENT = '#FF4154';
 const queryClient = new QueryClient();
@@ -41,25 +45,40 @@ const PostList: React.FC = () => {
       <View style={styles.conceptBox}>
         <Text style={styles.conceptTitle}>How React Query Works</Text>
         <Text style={styles.conceptText}>
-          1. <Text style={styles.bold}>QueryClientProvider</Text> — wraps the app{'\n'}
-          2. <Text style={styles.bold}>useQuery</Text> — fetches, caches, syncs data{'\n'}
-          3. <Text style={styles.bold}>queryKey</Text> — unique cache identifier{'\n'}
+          1. <Text style={styles.bold}>QueryClientProvider</Text> — wraps the
+          app{'\n'}
+          2. <Text style={styles.bold}>useQuery</Text> — fetches, caches, syncs
+          data{'\n'}
+          3. <Text style={styles.bold}>queryKey</Text> — unique cache identifier
+          {'\n'}
           4. Auto-refetch, stale-while-revalidate built-in{'\n'}
-          5. <Text style={styles.bold}>isLoading/isError</Text> — built-in states
+          5. <Text style={styles.bold}>isLoading/isError</Text> — built-in
+          states
         </Text>
       </View>
 
       <View style={styles.statusRow}>
         <Text style={styles.statusLabel}>
-          Status: {isLoading ? '⏳ Loading' : isError ? '❌ Error' : `✅ ${data?.length} posts`}
+          Status:{' '}
+          {isLoading
+            ? '⏳ Loading'
+            : isError
+            ? '❌ Error'
+            : `✅ ${data?.length} posts`}
         </Text>
         <TouchableOpacity onPress={() => refetch()} style={styles.refetchBtn}>
-          <Text style={styles.refetchText}>{isFetching ? '…' : '↺ Refetch'}</Text>
+          <Text style={styles.refetchText}>
+            {isFetching ? '…' : '↺ Refetch'}
+          </Text>
         </TouchableOpacity>
       </View>
 
       {isLoading ? (
-        <ActivityIndicator color={ACCENT} size="large" style={{ marginTop: Spacing.xl }} />
+        <ActivityIndicator
+          color={ACCENT}
+          size="large"
+          style={{ marginTop: Spacing.xl }}
+        />
       ) : isError ? (
         <Text style={styles.errorText}>Failed to load. Check connection.</Text>
       ) : (

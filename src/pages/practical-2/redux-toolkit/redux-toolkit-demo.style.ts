@@ -1,5 +1,14 @@
 import { StyleSheet } from 'react-native';
-import { Colors, BorderRadius, FontFamily, FontSize, Spacing, scale, verticalScale, rf } from '../../../common/theme';
+import {
+  Colors,
+  BorderRadius,
+  FontFamily,
+  FontSize,
+  Spacing,
+  scale,
+  verticalScale,
+  rf,
+} from '../../../common/theme';
 
 export const RTK_ACCENT = '#764ABC';
 

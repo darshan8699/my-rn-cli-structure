@@ -1,4 +1,8 @@
-import type { TextProps as RNTextProps, StyleProp, TextStyle } from 'react-native';
+import type {
+  TextProps as RNTextProps,
+  StyleProp,
+  TextStyle,
+} from 'react-native';
 
 export type TextVariant =
   | 'display'

@@ -15,7 +15,8 @@ const Navigation: React.FC = () => {
       <RootStack.Navigator
         screenOptions={{
           headerShown: false,
-        }}>
+        }}
+      >
         <RootStack.Screen name="Home" component={HomeScreen} />
         <RootStack.Screen name="Practical1" component={Practical1Navigator} />
         <RootStack.Screen name="Practical2" component={Practical2Navigator} />

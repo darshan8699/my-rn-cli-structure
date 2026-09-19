@@ -1,15 +1,23 @@
 import React, { createContext, useContext, useReducer } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import type { CountAction, CounterContextType, CounterProviderProps } from './context-demo.type';
+import type {
+  CountAction,
+  CounterContextType,
+  CounterProviderProps,
+} from './context-demo.type';
 import styles from './context-demo.style';
 
 // ─── Reducer ─────────────────────────────────────────────────────────────────
 const countReducer = (state: number, action: CountAction): number => {
   switch (action.type) {
-    case 'INC': return state + 1;
-    case 'DEC': return state - 1;
-    case 'RESET': return 0;
-    default: return state;
+    case 'INC':
+      return state + 1;
+    case 'DEC':
+      return state - 1;
+    case 'RESET':
+      return 0;
+    default:
+      return state;
   }
 };
 
@@ -40,18 +48,21 @@ const CounterDisplay: React.FC = () => {
       <View style={styles.row}>
         <TouchableOpacity
           style={[styles.btn, styles.btnOutline]}
-          onPress={() => dispatch({ type: 'DEC' })}>
+          onPress={() => dispatch({ type: 'DEC' })}
+        >
           <Text style={styles.btnOutlineText}>−</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.btn, styles.btnPrimary]}
-          onPress={() => dispatch({ type: 'INC' })}>
+          onPress={() => dispatch({ type: 'INC' })}
+        >
           <Text style={styles.btnText}>+</Text>
         </TouchableOpacity>
       </View>
       <TouchableOpacity
         style={styles.resetBtn}
-        onPress={() => dispatch({ type: 'RESET' })}>
+        onPress={() => dispatch({ type: 'RESET' })}
+      >
         <Text style={styles.resetText}>Reset</Text>
       </TouchableOpacity>
     </View>
@@ -66,10 +77,14 @@ const ContextDemoScreen: React.FC = () => {
         <View style={styles.conceptBox}>
           <Text style={styles.conceptTitle}>How Context API Works</Text>
           <Text style={styles.conceptText}>
-            1. <Text style={styles.bold}>createContext()</Text> — creates the context{'\n'}
-            2. <Text style={styles.bold}>Provider</Text> — wraps tree, supplies value{'\n'}
-            3. <Text style={styles.bold}>useReducer</Text> — manages complex state{'\n'}
-            4. <Text style={styles.bold}>useContext()</Text> — consumes context in any child{'\n'}
+            1. <Text style={styles.bold}>createContext()</Text> — creates the
+            context{'\n'}
+            2. <Text style={styles.bold}>Provider</Text> — wraps tree, supplies
+            value{'\n'}
+            3. <Text style={styles.bold}>useReducer</Text> — manages complex
+            state{'\n'}
+            4. <Text style={styles.bold}>useContext()</Text> — consumes context
+            in any child{'\n'}
             5. No extra libs — built into React!
           </Text>
         </View>

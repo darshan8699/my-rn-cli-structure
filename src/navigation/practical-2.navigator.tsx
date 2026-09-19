@@ -27,7 +27,8 @@ const Practical2Navigator: React.FC = () => {
           color: Colors.text,
         },
         headerTintColor: Colors.primary,
-      }}>
+      }}
+    >
       <P2Stack.Screen
         name="P2Dashboard"
         component={P2DashboardScreen}

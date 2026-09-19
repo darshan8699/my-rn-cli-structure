@@ -12,7 +12,7 @@ describe('TextInput Component', () => {
           placeholder="Enter email"
           value=""
           onChangeText={() => {}}
-        />
+        />,
       );
     });
     expect(component.toJSON()).toBeTruthy();
@@ -29,10 +29,12 @@ describe('TextInput Component', () => {
           value="123"
           error="Password too short"
           onChangeText={() => {}}
-        />
+        />,
       );
     });
-    const errorText = component.root.findByProps({ testID: 'textinput-error-text' });
+    const errorText = component.root.findByProps({
+      testID: 'textinput-error-text',
+    });
     expect(errorText).toBeTruthy();
     expect(errorText.props.children).toBe('Password too short');
   });
@@ -46,10 +48,12 @@ describe('TextInput Component', () => {
           value="secret"
           secureTextEntry={true}
           onChangeText={() => {}}
-        />
+        />,
       );
     });
-    const toggle = component.root.findByProps({ testID: 'textinput-password-toggle' });
+    const toggle = component.root.findByProps({
+      testID: 'textinput-password-toggle',
+    });
     expect(toggle).toBeTruthy();
   });
 });

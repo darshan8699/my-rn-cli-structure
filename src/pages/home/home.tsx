@@ -29,7 +29,7 @@ const HomeScreen: React.FC = () => {
     return PRACTICALS.filter(
       item =>
         item.title.toLowerCase().includes(query) ||
-        item.description.toLowerCase().includes(query)
+        item.description.toLowerCase().includes(query),
     );
   }, [searchQuery]);
 
@@ -64,7 +64,7 @@ const HomeScreen: React.FC = () => {
     } else {
       Alert.alert(
         `${item.title} 🚀`,
-        `${item.description}\n\nThis practical module is coming soon!`
+        `${item.description}\n\nThis practical module is coming soon!`,
       );
     }
   };

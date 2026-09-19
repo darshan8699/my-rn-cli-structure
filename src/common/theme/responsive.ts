@@ -47,7 +47,10 @@ export const hp = (percentage: number): number => {
 /**
  * Responsive font scaling that balances readability across phones and tablets.
  */
-export const rf = (fontSize: number, standardScreenHeight: number = GUIDELINE_BASE_HEIGHT): number => {
+export const rf = (
+  fontSize: number,
+  standardScreenHeight: number = GUIDELINE_BASE_HEIGHT,
+): number => {
   const heightPercent = (fontSize * WINDOW_HEIGHT) / standardScreenHeight;
   return Math.round(PixelRatio.roundToNearestPixel(heightPercent));
 };

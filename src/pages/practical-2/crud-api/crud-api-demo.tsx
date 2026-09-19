@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
   ActivityIndicator,
   Alert,
+  FlatList,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import axios from 'axios';
-import { Colors, Spacing } from '../../../common/theme';
+import { Spacing } from '../../../common/theme';
 import { AppModal, AppTextInput } from '../../../components/common';
 import type { Post } from './crud-api-demo.type';
 import styles from './crud-api-demo.style';
@@ -43,23 +43,36 @@ const CrudApiDemoScreen: React.FC = () => {
   const handleCreate = async () => {
     if (!title.trim()) return;
     try {
-      const { data } = await axios.post<Post>(BASE_URL, { title, body: 'New post body', userId: 1 });
+      const { data } = await axios.post<Post>(BASE_URL, {
+        title,
+        body: 'New post body',
+        userId: 1,
+      });
       setPosts(prev => [{ ...data, id: Date.now() }, ...prev]);
       setTitle('');
       setModalVisible(false);
-    } catch { Alert.alert('Error', 'Create failed'); }
+    } catch {
+      Alert.alert('Error', 'Create failed');
+    }
   };
 
   // UPDATE
   const handleUpdate = async () => {
     if (!editPost || !title.trim()) return;
     try {
-      await axios.put(`${BASE_URL}/${editPost.id}`, { title, body: editPost.body });
-      setPosts(prev => prev.map(p => p.id === editPost.id ? { ...p, title } : p));
+      await axios.put(`${BASE_URL}/${editPost.id}`, {
+        title,
+        body: editPost.body,
+      });
+      setPosts(prev =>
+        prev.map(p => (p.id === editPost.id ? { ...p, title } : p)),
+      );
       setTitle('');
       setEditPost(null);
       setModalVisible(false);
-    } catch { Alert.alert('Error', 'Update failed'); }
+    } catch {
+      Alert.alert('Error', 'Update failed');
+    }
   };
 
   // DELETE
@@ -67,21 +80,36 @@ const CrudApiDemoScreen: React.FC = () => {
     try {
       await axios.delete(`${BASE_URL}/${id}`);
       setPosts(prev => prev.filter(p => p.id !== id));
-    } catch { Alert.alert('Error', 'Delete failed'); }
+    } catch {
+      Alert.alert('Error', 'Delete failed');
+    }
   };
 
-  const openCreate = () => { setEditPost(null); setTitle(''); setModalVisible(true); };
-  const openEdit = (post: Post) => { setEditPost(post); setTitle(post.title); setModalVisible(true); };
+  const openCreate = () => {
+    setEditPost(null);
+    setTitle('');
+    setModalVisible(true);
+  };
+  const openEdit = (post: Post) => {
+    setEditPost(post);
+    setTitle(post.title);
+    setModalVisible(true);
+  };
 
   const renderItem = ({ item }: { item: Post }) => (
     <View style={styles.postCard}>
       <Text style={styles.postId}>#{item.id}</Text>
-      <Text style={styles.postTitle} numberOfLines={2}>{item.title}</Text>
+      <Text style={styles.postTitle} numberOfLines={2}>
+        {item.title}
+      </Text>
       <View style={styles.postActions}>
         <TouchableOpacity style={styles.editBtn} onPress={() => openEdit(item)}>
           <Text style={styles.editBtnText}>✏️ Edit</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.deleteBtn} onPress={() => handleDelete(item.id)}>
+        <TouchableOpacity
+          style={styles.deleteBtn}
+          onPress={() => handleDelete(item.id)}
+        >
           <Text style={styles.deleteBtnText}>🗑️ Delete</Text>
         </TouchableOpacity>
       </View>
@@ -98,7 +126,11 @@ const CrudApiDemoScreen: React.FC = () => {
       </View>
 
       {loading ? (
-        <ActivityIndicator color={ACCENT} size="large" style={{ marginTop: Spacing.xl }} />
+        <ActivityIndicator
+          color={ACCENT}
+          size="large"
+          style={{ marginTop: Spacing.xl }}
+        />
       ) : (
         <FlatList
           data={posts}

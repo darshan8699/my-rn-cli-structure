@@ -30,11 +30,7 @@ const AccountScreen: React.FC = () => {
       </View>
 
       <View style={styles.actions}>
-        <Button
-          label="Log Out"
-          variant="outline"
-          onPress={handleLogout}
-        />
+        <Button label="Log Out" variant="outline" onPress={handleLogout} />
         <Button
           label="Back to Home"
           variant="secondary"

@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Alert,
-} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import type { LoginNavProp, LoginForm, LoginErrors } from './login.type';
+import React, { useState } from 'react';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { AppTextInput, Button } from '../../../../components/common';
 import styles from './login.style';
+import type { LoginErrors, LoginForm, LoginNavProp } from './login.type';
 
 const LoginScreen: React.FC = () => {
   const navigation = useNavigation<LoginNavProp>();
@@ -49,7 +43,8 @@ const LoginScreen: React.FC = () => {
     <ScrollView
       style={styles.scrollView}
       contentContainerStyle={styles.container}
-      keyboardShouldPersistTaps="handled">
+      keyboardShouldPersistTaps="handled"
+    >
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.emoji}>👋</Text>
@@ -76,7 +71,8 @@ const LoginScreen: React.FC = () => {
           value={form.password}
           onChangeText={text => {
             setForm(f => ({ ...f, password: text }));
-            if (errors.password) setErrors(e => ({ ...e, password: undefined }));
+            if (errors.password)
+              setErrors(e => ({ ...e, password: undefined }));
           }}
           placeholder="••••••••"
           error={errors.password}
@@ -86,7 +82,8 @@ const LoginScreen: React.FC = () => {
         {/* Forgot Password */}
         <TouchableOpacity
           style={styles.forgotBtn}
-          onPress={() => navigation.navigate('ForgotPassword')}>
+          onPress={() => navigation.navigate('ForgotPassword')}
+        >
           <Text style={styles.forgotText}>Forgot password?</Text>
         </TouchableOpacity>
 
@@ -102,7 +99,8 @@ const LoginScreen: React.FC = () => {
         {/* Signup Link */}
         <TouchableOpacity
           style={styles.signupBtn}
-          onPress={() => navigation.navigate('Signup')}>
+          onPress={() => navigation.navigate('Signup')}
+        >
           <Text style={styles.signupText}>
             Don't have an account?{' '}
             <Text style={styles.signupLink}>Create one</Text>

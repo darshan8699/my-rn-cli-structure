@@ -1,17 +1,21 @@
+import {
+  configureStore,
+  createAsyncThunk,
+  createSlice,
+} from '@reduxjs/toolkit';
+import axios from 'axios';
 import React from 'react';
 import {
-  View,
-  Text,
-  FlatList,
   ActivityIndicator,
+  FlatList,
+  Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
-import { createSlice, createAsyncThunk, configureStore } from '@reduxjs/toolkit';
-import { Provider, useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import { Spacing } from '../../../common/theme';
-import type { Post, PostsState } from './redux-api-demo.type';
 import styles from './redux-api-demo.style';
+import type { Post, PostsState } from './redux-api-demo.type';
 
 const ACCENT = '#6C63FF';
 
@@ -30,9 +34,18 @@ const postsSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(fetchPosts.pending, state => { state.loading = true; state.error = null; })
-      .addCase(fetchPosts.fulfilled, (state, action) => { state.loading = false; state.data = action.payload; })
-      .addCase(fetchPosts.rejected, (state, action) => { state.loading = false; state.error = action.error.message ?? 'Error'; });
+      .addCase(fetchPosts.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchPosts.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetchPosts.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message ?? 'Error';
+      });
   },
 });
 
@@ -48,7 +61,9 @@ const PostList: React.FC = () => {
   const renderItem = ({ item }: { item: Post }) => (
     <View style={styles.postCard}>
       <Text style={styles.postId}>#{item.id}</Text>
-      <Text style={styles.postTitle} numberOfLines={2}>{item.title}</Text>
+      <Text style={styles.postTitle} numberOfLines={2}>
+        {item.title}
+      </Text>
     </View>
   );
 
@@ -57,10 +72,13 @@ const PostList: React.FC = () => {
       <View style={styles.conceptBox}>
         <Text style={styles.conceptTitle}>Redux + API (createAsyncThunk)</Text>
         <Text style={styles.conceptText}>
-          1. <Text style={styles.bold}>createAsyncThunk</Text> — wraps async API call{'\n'}
+          1. <Text style={styles.bold}>createAsyncThunk</Text> — wraps async API
+          call{'\n'}
           2. Auto dispatches pending/fulfilled/rejected{'\n'}
-          3. <Text style={styles.bold}>extraReducers</Text> — handles thunk lifecycle{'\n'}
-          4. <Text style={styles.bold}>useSelector</Text> — reads loading/data/error{'\n'}
+          3. <Text style={styles.bold}>extraReducers</Text> — handles thunk
+          lifecycle{'\n'}
+          4. <Text style={styles.bold}>useSelector</Text> — reads
+          loading/data/error{'\n'}
           5. Clean, structured async pattern
         </Text>
       </View>
@@ -68,13 +86,24 @@ const PostList: React.FC = () => {
       <TouchableOpacity
         style={styles.fetchBtn}
         onPress={() => dispatch(fetchPosts())}
-        disabled={loading}>
+        disabled={loading}
+      >
         <Text style={styles.fetchBtnText}>
-          {loading ? '…Fetching' : data.length ? '↺ Refetch Posts' : '🚀 Fetch Posts'}
+          {loading
+            ? '…Fetching'
+            : data.length
+            ? '↺ Refetch Posts'
+            : '🚀 Fetch Posts'}
         </Text>
       </TouchableOpacity>
 
-      {loading && <ActivityIndicator color={ACCENT} size="large" style={{ marginTop: Spacing.lg }} />}
+      {loading && (
+        <ActivityIndicator
+          color={ACCENT}
+          size="large"
+          style={{ marginTop: Spacing.lg }}
+        />
+      )}
       {error && <Text style={styles.errorText}>Error: {error}</Text>}
 
       {data.length > 0 && !loading && (

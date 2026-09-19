@@ -138,15 +138,15 @@ MyRNCliStructure/
 
 Located in `src/common/theme/`:
 
-| Module | Purpose | Example Tokens |
-|--------|---------|----------------|
-| `responsive.ts` | Mobile dimension scaling functions | `scale(10)`, `verticalScale(20)`, `moderateScale(16)`, `wp(90)`, `hp(50)`, `rf(14)` |
-| `color.ts` | Complete application color palette | `Colors.primary`, `Colors.secondary`, `Colors.surface`, `Colors.text`, `Colors.error` |
-| `font.ts` | Font family declarations | `FontFamily.regular`, `FontFamily.medium`, `FontFamily.semiBold`, `FontFamily.bold` |
-| `font-size.ts` | Scaled typography sizes | `FontSize.xs`, `FontSize.sm`, `FontSize.md`, `FontSize.lg`, `FontSize.xl`, `FontSize.xxl`, `FontSize.display` |
-| `spacing.ts` | Responsive layout margins & paddings | `Spacing.xs`, `Spacing.sm`, `Spacing.md`, `Spacing.lg`, `Spacing.xl`, `Spacing.xxl` |
-| `border-radius.ts`| Responsive border radius tokens | `BorderRadius.xs`, `BorderRadius.sm`, `BorderRadius.md`, `BorderRadius.lg`, `BorderRadius.full` |
-| `index.ts` | Unified theme barrel export | `import { Colors, Spacing, FontSize, scale } from 'src/common/theme'` |
+| Module             | Purpose                              | Example Tokens                                                                                                |
+| ------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| `responsive.ts`    | Mobile dimension scaling functions   | `scale(10)`, `verticalScale(20)`, `moderateScale(16)`, `wp(90)`, `hp(50)`, `rf(14)`                           |
+| `color.ts`         | Complete application color palette   | `Colors.primary`, `Colors.secondary`, `Colors.surface`, `Colors.text`, `Colors.error`                         |
+| `font.ts`          | Font family declarations             | `FontFamily.regular`, `FontFamily.medium`, `FontFamily.semiBold`, `FontFamily.bold`                           |
+| `font-size.ts`     | Scaled typography sizes              | `FontSize.xs`, `FontSize.sm`, `FontSize.md`, `FontSize.lg`, `FontSize.xl`, `FontSize.xxl`, `FontSize.display` |
+| `spacing.ts`       | Responsive layout margins & paddings | `Spacing.xs`, `Spacing.sm`, `Spacing.md`, `Spacing.lg`, `Spacing.xl`, `Spacing.xxl`                           |
+| `border-radius.ts` | Responsive border radius tokens      | `BorderRadius.xs`, `BorderRadius.sm`, `BorderRadius.md`, `BorderRadius.lg`, `BorderRadius.full`               |
+| `index.ts`         | Unified theme barrel export          | `import { Colors, Spacing, FontSize, scale } from 'src/common/theme'`                                         |
 
 ---
 
@@ -164,6 +164,7 @@ common/<component>/
 ```
 
 Available common components:
+
 - **`Button`**: Supports variants (`primary`, `secondary`, `outline`, `ghost`), sizes (`sm`, `md`, `lg`), loading spinner, and disabled states.
 - **`AppTextInput`**: Supports floating label, validation error messages, secure password entry with toggle icon, and focus/blur handling.
 - **`AppText`**: Typography wrapper supporting variants (`display`, `h1`, `h2`, `h3`, `body`, `caption`, `label`, `error`), weights, and responsive font scaling.

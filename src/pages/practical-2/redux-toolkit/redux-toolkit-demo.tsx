@@ -12,9 +12,15 @@ const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    increment: state => { state.value += 1; },
-    decrement: state => { state.value -= 1; },
-    reset: state => { state.value = 0; },
+    increment: state => {
+      state.value += 1;
+    },
+    decrement: state => {
+      state.value -= 1;
+    },
+    reset: state => {
+      state.value = 0;
+    },
   },
 });
 
@@ -35,10 +41,14 @@ const Counter: React.FC = () => {
       <View style={styles.conceptBox}>
         <Text style={styles.conceptTitle}>How Redux Toolkit Works</Text>
         <Text style={styles.conceptText}>
-          1. <Text style={styles.bold}>createSlice</Text> — bundles actions + reducer{'\n'}
-          2. <Text style={styles.bold}>configureStore</Text> — sets up store with DevTools{'\n'}
-          3. <Text style={styles.bold}>useSelector</Text> — reads state in component{'\n'}
-          4. <Text style={styles.bold}>useDispatch</Text> — dispatches actions{'\n'}
+          1. <Text style={styles.bold}>createSlice</Text> — bundles actions +
+          reducer{'\n'}
+          2. <Text style={styles.bold}>configureStore</Text> — sets up store
+          with DevTools{'\n'}
+          3. <Text style={styles.bold}>useSelector</Text> — reads state in
+          component{'\n'}
+          4. <Text style={styles.bold}>useDispatch</Text> — dispatches actions
+          {'\n'}
           5. Immer built-in — write "mutating" reducers safely
         </Text>
       </View>
@@ -49,16 +59,21 @@ const Counter: React.FC = () => {
         <View style={styles.row}>
           <TouchableOpacity
             style={[styles.btn, styles.btnOutline]}
-            onPress={() => dispatch(decrement())}>
+            onPress={() => dispatch(decrement())}
+          >
             <Text style={styles.btnOutlineText}>−</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.btn, styles.btnPrimary]}
-            onPress={() => dispatch(increment())}>
+            onPress={() => dispatch(increment())}
+          >
             <Text style={styles.btnText}>+</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.resetBtn} onPress={() => dispatch(reset())}>
+        <TouchableOpacity
+          style={styles.resetBtn}
+          onPress={() => dispatch(reset())}
+        >
           <Text style={styles.resetText}>Reset</Text>
         </TouchableOpacity>
       </View>

@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { createStore } from 'redux';
-import { View, Text, TouchableOpacity } from 'react-native';
-import type { CounterAction } from './redux-demo.type';
 import styles from './redux-demo.style';
+import type { CounterAction } from './redux-demo.type';
 
 // ─── Redux Setup ─────────────────────────────────────────────────────────────
 const counterReducer = (state = 0, action: CounterAction): number => {
   switch (action.type) {
-    case 'INCREMENT': return state + 1;
-    case 'DECREMENT': return state - 1;
-    case 'RESET': return 0;
-    default: return state;
+    case 'INCREMENT':
+      return state + 1;
+    case 'DECREMENT':
+      return state - 1;
+    case 'RESET':
+      return 0;
+    default:
+      return state;
   }
 };
 
@@ -31,11 +35,16 @@ const ReduxDemoScreen: React.FC = () => {
       <View style={styles.conceptBox}>
         <Text style={styles.conceptTitle}>How Classic Redux Works</Text>
         <Text style={styles.conceptText}>
-          1. <Text style={styles.bold}>Store</Text> — holds the global state{'\n'}
-          2. <Text style={styles.bold}>Action</Text> — plain object {`{ type }`}{'\n'}
-          3. <Text style={styles.bold}>Reducer</Text> — pure function (state, action) → state{'\n'}
-          4. <Text style={styles.bold}>dispatch()</Text> — sends action to reducer{'\n'}
-          5. <Text style={styles.bold}>subscribe()</Text> — listens for state changes
+          1. <Text style={styles.bold}>Store</Text> — holds the global state
+          {'\n'}
+          2. <Text style={styles.bold}>Action</Text> — plain object {`{ type }`}
+          {'\n'}
+          3. <Text style={styles.bold}>Reducer</Text> — pure function (state,
+          action) → state{'\n'}
+          4. <Text style={styles.bold}>dispatch()</Text> — sends action to
+          reducer{'\n'}
+          5. <Text style={styles.bold}>subscribe()</Text> — listens for state
+          changes
         </Text>
       </View>
 
@@ -46,18 +55,21 @@ const ReduxDemoScreen: React.FC = () => {
         <View style={styles.row}>
           <TouchableOpacity
             style={[styles.btn, styles.btnOutline]}
-            onPress={() => store.dispatch({ type: 'DECREMENT' })}>
+            onPress={() => store.dispatch({ type: 'DECREMENT' })}
+          >
             <Text style={styles.btnOutlineText}>−</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.btn, styles.btnPrimary]}
-            onPress={() => store.dispatch({ type: 'INCREMENT' })}>
+            onPress={() => store.dispatch({ type: 'INCREMENT' })}
+          >
             <Text style={styles.btnText}>+</Text>
           </TouchableOpacity>
         </View>
         <TouchableOpacity
           style={styles.resetBtn}
-          onPress={() => store.dispatch({ type: 'RESET' })}>
+          onPress={() => store.dispatch({ type: 'RESET' })}
+        >
           <Text style={styles.resetText}>Reset</Text>
         </TouchableOpacity>
       </View>

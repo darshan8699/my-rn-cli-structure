@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { View, Text, ScrollView, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
+import { ScrollView, Text, View } from 'react-native';
 import { AppTextInput, Button } from '../../../../components/common';
 import styles from './forgot-password.style';
 

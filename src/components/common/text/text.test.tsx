@@ -18,7 +18,7 @@ describe('Text Component', () => {
       component = ReactTestRenderer.create(
         <AppText variant="h1" weight="bold">
           Heading 1
-        </AppText>
+        </AppText>,
       );
     });
     expect(component.toJSON()).toBeTruthy();
@@ -31,7 +31,7 @@ describe('Text Component', () => {
       component = ReactTestRenderer.create(
         <AppText color="#EF4444" align="center">
           Centered Error
-        </AppText>
+        </AppText>,
       );
     });
     expect(component.toJSON()).toBeTruthy();

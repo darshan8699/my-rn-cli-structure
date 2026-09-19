@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Alert,
-} from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { SignupNavProp, SignupForm, SignupErrors } from './signup.type';
 import { AppTextInput, Button } from '../../../../components/common';
@@ -56,17 +50,21 @@ const SignupScreen: React.FC = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      Alert.alert('Account Created! 🎉', 'Welcome! Redirecting to dashboard...', [
-        {
-          text: 'OK',
-          onPress: () => {
-            navigation.reset({
-              index: 0,
-              routes: [{ name: 'MainTabs' }],
-            });
+      Alert.alert(
+        'Account Created! 🎉',
+        'Welcome! Redirecting to dashboard...',
+        [
+          {
+            text: 'OK',
+            onPress: () => {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'MainTabs' }],
+              });
+            },
           },
-        },
-      ]);
+        ],
+      );
     }, 500);
   };
 
@@ -74,7 +72,8 @@ const SignupScreen: React.FC = () => {
     <ScrollView
       style={styles.scrollView}
       contentContainerStyle={styles.container}
-      keyboardShouldPersistTaps="handled">
+      keyboardShouldPersistTaps="handled"
+    >
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.emoji}>🚀</Text>
@@ -119,12 +118,17 @@ const SignupScreen: React.FC = () => {
           secureTextEntry
         />
 
-        <Button label="Create Account" onPress={handleSignup} loading={loading} />
+        <Button
+          label="Create Account"
+          onPress={handleSignup}
+          loading={loading}
+        />
 
         {/* Login Link */}
         <TouchableOpacity
           style={styles.loginBtn}
-          onPress={() => navigation.navigate('Login')}>
+          onPress={() => navigation.navigate('Login')}
+        >
           <Text style={styles.loginText}>
             Already have an account?{' '}
             <Text style={styles.loginLink}>Sign in</Text>

@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { create } from 'zustand';
-import type { CounterStore } from './zustand-demo.type';
 import styles from './zustand-demo.style';
+import type { CounterStore } from './zustand-demo.type';
 
 // ─── Zustand Store ────────────────────────────────────────────────────────────
 const useCounterStore = create<CounterStore>(set => ({
@@ -21,7 +21,8 @@ const ZustandDemoScreen: React.FC = () => {
       <View style={styles.conceptBox}>
         <Text style={styles.conceptTitle}>How Zustand Works</Text>
         <Text style={styles.conceptText}>
-          1. <Text style={styles.bold}>create()</Text> — creates a store hook{'\n'}
+          1. <Text style={styles.bold}>create()</Text> — creates a store hook
+          {'\n'}
           2. State + actions defined together in one object{'\n'}
           3. <Text style={styles.bold}>set()</Text> — merges new state{'\n'}
           4. No Provider needed — just import the hook!{'\n'}
@@ -33,10 +34,16 @@ const ZustandDemoScreen: React.FC = () => {
         <Text style={styles.label}>Counter (Zustand store)</Text>
         <Text style={styles.count}>{count}</Text>
         <View style={styles.row}>
-          <TouchableOpacity style={[styles.btn, styles.btnOutline]} onPress={decrement}>
+          <TouchableOpacity
+            style={[styles.btn, styles.btnOutline]}
+            onPress={decrement}
+          >
             <Text style={styles.btnOutlineText}>−</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.btn, styles.btnPrimary]} onPress={increment}>
+          <TouchableOpacity
+            style={[styles.btn, styles.btnPrimary]}
+            onPress={increment}
+          >
             <Text style={styles.btnText}>+</Text>
           </TouchableOpacity>
         </View>
