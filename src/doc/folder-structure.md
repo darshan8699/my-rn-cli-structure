@@ -108,17 +108,30 @@ MyRNCliStructure/
 │       │       ├── account/        # (account.tsx, account.style.ts, account.type.ts)
 │       │       └── setting/        # (setting.tsx, setting.style.ts, setting.type.ts)
 │       │
-│       └── practical-2/            # Practical 2: State management & API integration demos
-│           ├── dashboard/          # (p2-dashboard.tsx, p2-dashboard.style.ts, p2-dashboard.data.ts, p2-dashboard.type.ts)
-│           ├── context/            # React Context demo (context-demo.tsx, context-demo.style.ts, context-demo.type.ts)
-│           ├── redux/              # Classic Redux demo (redux-demo.tsx, redux-demo.style.ts, redux-demo.type.ts)
-│           ├── redux-toolkit/      # RTK demo (redux-toolkit-demo.tsx, redux-toolkit-demo.style.ts, redux-toolkit-demo.type.ts)
-│           ├── zustand/            # Zustand demo (zustand-demo.tsx, zustand-demo.style.ts, zustand-demo.type.ts)
-│           ├── mobx/               # MobX demo (mobx-demo.tsx, mobx-demo.style.ts, mobx-demo.type.ts)
-│           ├── crud-api/           # CRUD REST demo (crud-api-demo.tsx, crud-api-demo.style.ts, crud-api-demo.type.ts)
-│           ├── graphql/            # GraphQL demo (graphql-demo.tsx, graphql-demo.style.ts, graphql-demo.type.ts)
-│           ├── react-query/        # React Query demo (react-query-demo.tsx, react-query-demo.style.ts, react-query-demo.type.ts)
-│           └── redux-api/          # Redux Toolkit Query / AsyncThunk demo (redux-api-demo.tsx, redux-api-demo.style.ts, redux-api-demo.type.ts)
+│       ├── practical-2/            # Practical 2: State management & API integration demos
+│       │   ├── dashboard/          # (p2-dashboard.tsx, p2-dashboard.style.ts, p2-dashboard.data.ts, p2-dashboard.type.ts)
+│       │   ├── context/            # React Context demo (context-demo.tsx, context-demo.style.ts, context-demo.type.ts)
+│       │   ├── redux/              # Classic Redux demo (redux-demo.tsx, redux-demo.style.ts, redux-demo.type.ts)
+│       │   ├── redux-toolkit/      # RTK demo (redux-toolkit-demo.tsx, redux-toolkit-demo.style.ts, redux-toolkit-demo.type.ts)
+│       │   ├── zustand/            # Zustand demo (zustand-demo.tsx, zustand-demo.style.ts, zustand-demo.type.ts)
+│       │   ├── mobx/               # MobX demo (mobx-demo.tsx, mobx-demo.style.ts, mobx-demo.type.ts)
+│       │   ├── crud-api/           # CRUD REST demo (crud-api-demo.tsx, crud-api-demo.style.ts, crud-api-demo.type.ts)
+│       │   ├── graphql/            # GraphQL demo (graphql-demo.tsx, graphql-demo.style.ts, graphql-demo.type.ts)
+│       │   ├── react-query/        # React Query demo (react-query-demo.tsx, react-query-demo.style.ts, react-query-demo.type.ts)
+│       │   └── redux-api/          # Redux Toolkit Query / AsyncThunk demo (redux-api-demo.tsx, redux-api-demo.style.ts, redux-api-demo.type.ts)
+│       │
+│       └── practical-3/            # Practical 3: Dynamic Cube Demo, TabBar & Custom Left Drawer
+│           ├── dashboard/          # Input (default 4) & generator (dashboard.tsx, dashboard.style.ts, dashboard.util.ts, dashboard.type.ts)
+│           ├── detail/             # Cube grid & color cycler (detail.tsx, detail.style.ts, detail.util.ts, detail.type.ts)
+│           ├── setting/            # Blank settings screen (setting.tsx, setting.style.ts, setting.type.ts)
+│           └── drawer-screens/     # Text-only drawer screens (screen-1/, screen-2/, screen-3/)
+│
+│   ├── components/
+│   │   ├── common/                 # Button, AppTextInput, AppText, AppModal
+│   │   └── modules/                # Feature-specific modules (custom-drawer/)
+│   │
+│   └── services/
+│       └── context/                # Shared React Contexts (drawer-context.tsx)
 │
 ├── App.tsx                         # Root application component
 ├── index.js                        # React Native app entry point

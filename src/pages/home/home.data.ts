@@ -20,8 +20,8 @@ export const PRACTICALS: PracticalItem[] = [
     id: '3',
     title: 'Practical 3',
     description:
-      'UI & Animations: Reanimated 3 · Shared Element Transitions · Gesture Handler',
-    comingSoon: true,
+      'Dynamic Cube Demo: TextInput · TabBar (Dashboard & Blank Settings) · Custom Left Drawer',
+    route: 'Practical3',
   },
   {
     id: '4',
